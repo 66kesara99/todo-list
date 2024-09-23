@@ -58,8 +58,6 @@ export function TodoList({ className }: { className?: string }) {
     ]);
   };
 
-  console.log(todos);
-
   return (
     <div
       className={cn(
@@ -89,14 +87,17 @@ export function TodoList({ className }: { className?: string }) {
       <AnimatedList>
         {todos
           .filter((item) => item.isDone)
-          .map((todo) => (
-            <TodoItem
-              todo={todo}
-              key={todo.id}
-              onDelete={onClickDelete}
-              onCheck={onCheck}
-            />
-          ))}
+          .map((todo) => {
+            console.log(todo);
+            return (
+              <TodoItem
+                todo={todo}
+                key={todo.id}
+                onDelete={onClickDelete}
+                onCheck={onCheck}
+              />
+            );
+          })}
       </AnimatedList>
     </div>
   );
